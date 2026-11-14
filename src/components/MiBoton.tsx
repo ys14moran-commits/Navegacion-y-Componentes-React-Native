@@ -1,20 +1,33 @@
 
-import { Alert, Pressable, StyleSheet, Text } from 'react-native';
+import {
+  Alert,
+  Linking,
+  Pressable,
+  StyleSheet,
+  Text,
+} from 'react-native';
 
 interface MiBotonProps {
   titulo: string;
-  mensaje: string;
+  url: string;
 }
 
-export default function MiBoton({ titulo, mensaje }: MiBotonProps) {
-  const mostrarMensaje = () => {
-    Alert.alert(titulo, mensaje);
+export default function MiBoton({ titulo, url }: MiBotonProps) {
+  const abrirEnlace = async () => {
+    try {
+      await Linking.openURL(url);
+    } catch {
+      Alert.alert(
+        'No se pudo abrir',
+        'No fue posible abrir esta opción en tu dispositivo.'
+      );
+    }
   };
 
   return (
     <Pressable
       style={styles.boton}
-      onPress={mostrarMensaje}
+      onPress={abrirEnlace}
     >
       <Text style={styles.texto}>{titulo}</Text>
     </Pressable>
