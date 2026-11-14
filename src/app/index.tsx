@@ -48,26 +48,27 @@ export default function Inicio() {
           <Text style={styles.habilidad}>• Desarrollo backend</Text>
         </View>
 
-        
-<View style={styles.seccion}>
-  <Text style={styles.titulo}>Contacto</Text>
+        <View style={styles.seccion}>
+          <Text style={styles.titulo}>Contacto</Text>
 
-  <MiBoton
-    titulo="Correo electrónico"
-    url="mailto:ys14moran@gmail.com"
-  />
+          <MiBoton
+            titulo="Correo electrónico"
+            url="mailto:ys14moran@gmail.com"
+            icono="mail-outline"
+          />
 
-  <MiBoton
-    titulo="Teléfono"
-    url="tel:3114665158"
-  />
+          <MiBoton
+            titulo="Teléfono"
+            url="tel:3114665158"
+            icono="call-outline"
+          />
 
-  <MiBoton
-    titulo="LinkedIn"
-    url="https://www.linkedin.com/in/yahir-santiago-moran-chiquiza-1b6379436/"
-  />
-</View>
-
+          <MiBoton
+            titulo="LinkedIn"
+            url="https://www.linkedin.com/in/yahir-santiago-moran-chiquiza-1b6379436/"
+            icono="logo-linkedin"
+          />
+        </View>
       </View>
     </ScrollView>
   );

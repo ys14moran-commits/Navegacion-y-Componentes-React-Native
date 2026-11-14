@@ -7,12 +7,19 @@ import {
   Text,
 } from 'react-native';
 
+import { Ionicons } from '@expo/vector-icons';
+
 interface MiBotonProps {
   titulo: string;
   url: string;
+  icono: keyof typeof Ionicons.glyphMap;
 }
 
-export default function MiBoton({ titulo, url }: MiBotonProps) {
+export default function MiBoton({
+  titulo,
+  url,
+  icono,
+}: MiBotonProps) {
   const abrirEnlace = async () => {
     try {
       await Linking.openURL(url);
@@ -29,6 +36,7 @@ export default function MiBoton({ titulo, url }: MiBotonProps) {
       style={styles.boton}
       onPress={abrirEnlace}
     >
+      <Ionicons name={icono} size={21} color="#FFFFFF" />
       <Text style={styles.texto}>{titulo}</Text>
     </Pressable>
   );
@@ -41,6 +49,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 12,
     alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 10,
     marginVertical: 6,
   },
   texto: {
