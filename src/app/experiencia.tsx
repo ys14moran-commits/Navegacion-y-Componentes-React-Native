@@ -15,21 +15,22 @@ export default function Experiencia() {
         <Text style={styles.titulo}>Mi experiencia</Text>
 
         <Text style={styles.subtitulo}>
-          Experiencias y actividades relacionadas con mi formación.
+          Proyectos académicos y conocimientos adquiridos durante mi
+          formación en Análisis y Desarrollo de Software.
         </Text>
 
         <TarjetaExperiencia
-          cargo="Proyectos académicos"
-          empresa="Formación SENA"
+          cargo="Desarrollador de ONUFAST"
+          empresa="Proyecto de formación SENA"
           periodo="2026 - Actualidad"
-          descripcion="Desarrollo de proyectos de software, creación de aplicaciones, manejo de bases de datos y aprendizaje de tecnologías de programación."
+          descripcion="Participación en el desarrollo de una aplicación web de logística para gestionar envíos, consultar estados de paquetes y administrar rutas. Trabajo con React, Python, FastAPI y bases de datos PostgreSQL."
         />
 
         <TarjetaExperiencia
-          cargo="Experiencia de ejemplo"
-          empresa="Por definir"
-          periodo="Por definir"
-          descripcion="Este espacio se actualizará con información de experiencia laboral real."
+          cargo="Desarrollo de API REST"
+          empresa="Proyecto de formación"
+          periodo="2026 - Actualidad"
+          descripcion="Creación y gestión de servicios backend utilizando Node.js, Express, Prisma y PostgreSQL. Implementación de operaciones para registrar, consultar, actualizar y eliminar información."
         />
       </View>
     </ScrollView>
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
   contenido: {
     padding: 20,
     paddingTop: 35,
+    paddingBottom: 40,
   },
   titulo: {
     fontSize: 25,
@@ -55,5 +57,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#77717F',
     marginBottom: 20,
+    lineHeight: 22,
   },
 });
