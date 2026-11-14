@@ -4,6 +4,7 @@ import {
   Text,
   ScrollView,
   StyleSheet,
+  Image,
 } from 'react-native';
 
 import MiBoton from '../components/MiBoton';
@@ -13,9 +14,10 @@ export default function Inicio() {
     <ScrollView style={styles.contenedor}>
       <View style={styles.contenido}>
         <View style={styles.perfil}>
-          <View style={styles.avatar}>
-            <Text style={styles.iniciales}>YM</Text>
-          </View>
+          <Image
+            source={require('../../assets/images/perfil.jpg')}
+            style={styles.foto}
+          />
 
           <Text style={styles.nombre}>
             Yahir Santiago Moran Ch
@@ -83,19 +85,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 30,
   },
-  avatar: {
-    width: 110,
-    height: 110,
-    borderRadius: 55,
-    backgroundColor: '#6C3B9A',
-    justifyContent: 'center',
-    alignItems: 'center',
+  foto: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
     marginBottom: 15,
-  },
-  iniciales: {
-    color: '#FFFFFF',
-    fontSize: 36,
-    fontWeight: 'bold',
+    borderWidth: 3,
+    borderColor: '#6C3B9A',
   },
   nombre: {
     fontSize: 25,
