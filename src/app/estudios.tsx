@@ -27,15 +27,15 @@ export default function Estudios() {
 
         <TarjetaEstudio
           titulo="Formación académica anterior"
-          institucion="Nombre de la institución"
-          periodo="Año de inicio - Año de finalización"
+          institucion="colegio dulce maria"
+          periodo="Año de inicio 2018 - Año de finalización 2025"
           enCurso={false}
         />
 
         <TarjetaEstudio
           titulo="Educación complementaria"
-          institucion="Nombre de la institución"
-          periodo="Año de realización"
+          institucion="Nombre de la institución no hay"
+          periodo="Año de realización no hay"
           enCurso={false}
         />
       </View>

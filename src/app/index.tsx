@@ -1,98 +1,132 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+} from 'react-native';
 
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
+import MiBoton from '../components/MiBoton';
+
+export default function Inicio() {
   return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+    <ScrollView style={styles.contenedor}>
+      <View style={styles.contenido}>
+        <View style={styles.perfil}>
+          <View style={styles.avatar}>
+            <Text style={styles.iniciales}>YM</Text>
+          </View>
 
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+          <Text style={styles.nombre}>
+            Yahir Santiago Moran Ch
+          </Text>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+          <Text style={styles.profesion}>
+            Aprendiz SENA | Análisis y Desarrollo de Software
+          </Text>
+        </View>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
+        <View style={styles.seccion}>
+          <Text style={styles.titulo}>Sobre mí</Text>
+
+          <Text style={styles.descripcion}>
+            Soy una persona responsable, comprometida y con disposición
+            para aprender. Me adapto a diferentes entornos de trabajo y
+            estoy interesado en fortalecer mis conocimientos en desarrollo
+            de software, bases de datos y programación backend.
+          </Text>
+        </View>
+
+        <View style={styles.seccion}>
+          <Text style={styles.titulo}>Mis conocimientos</Text>
+
+          <Text style={styles.habilidad}>• JavaScript</Text>
+          <Text style={styles.habilidad}>• Python</Text>
+          <Text style={styles.habilidad}>• SQL y bases de datos</Text>
+          <Text style={styles.habilidad}>• Desarrollo backend</Text>
+        </View>
+
+        <View style={styles.seccion}>
+          <Text style={styles.titulo}>Contacto</Text>
+
+          <MiBoton
+            titulo="Correo electrónico"
+            mensaje="Agrega aquí tu correo electrónico."
           />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
 
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+          <MiBoton
+            titulo="Teléfono"
+            mensaje="Agrega aquí tu número de contacto."
+          />
+
+          <MiBoton
+            titulo="LinkedIn"
+            mensaje="Agrega aquí tu perfil de LinkedIn."
+          />
+        </View>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  contenedor: {
     flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
+    backgroundColor: '#F4F2F7',
   },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
+  contenido: {
+    padding: 20,
+    paddingTop: 35,
+    paddingBottom: 40,
+  },
+  perfil: {
     alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
+    marginBottom: 30,
   },
-  heroSection: {
-    alignItems: 'center',
+  avatar: {
+    width: 110,
+    height: 110,
+    borderRadius: 55,
+    backgroundColor: '#6C3B9A',
     justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+    alignItems: 'center',
+    marginBottom: 15,
   },
-  title: {
+  iniciales: {
+    color: '#FFFFFF',
+    fontSize: 36,
+    fontWeight: 'bold',
+  },
+  nombre: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: '#25212B',
     textAlign: 'center',
   },
-  code: {
-    textTransform: 'uppercase',
+  profesion: {
+    fontSize: 14,
+    color: '#6C3B9A',
+    textAlign: 'center',
+    marginTop: 8,
   },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+  seccion: {
+    marginBottom: 25,
+  },
+  titulo: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#6C3B9A',
+    marginBottom: 12,
+  },
+  descripcion: {
+    fontSize: 15,
+    color: '#555555',
+    lineHeight: 23,
+    textAlign: 'justify',
+  },
+  habilidad: {
+    fontSize: 15,
+    color: '#444444',
+    marginVertical: 5,
   },
 });
